@@ -1,14 +1,16 @@
 #ifndef _XMC_MACRO_H_
 #define _XMC_MACRO_H_
 
-#define XMC_INTERFACE(name)	\
+#define XMC_INTERFACE(name, id)	\
 	private:	\
-	interface(const interface &rhs);	\
-	interface & operator =(const interface &rhs);
-
-#define	XMC_INTERFACE_ID(id)	\
+		name(const name &rhs);	\
+		name & operator =(const name &rhs);	\
 	public:	\
-	static	s32	ID	=	(id);
+		static	const	s32	ID	=	(id);
+
+#define XMC_INTERFACE_CONST_NUM(type, name, num)	\
+	public:	\
+		static	const	type	name = (num);
 
 #define XMC_INTERFACE_METHOD(method)	\
 	public:	\
